@@ -2,10 +2,10 @@ import collections
 #filepath = 'input/day1/day1-test.txt'
 strFilepath = 'input/day1/day1-puzzle1.txt'
 intTotalFrequency = 0
-intFrequencyList = []
+intFrequencySet = set()
 
 def duplicate(intFrequency):
-	if intFrequency in intFrequencyList:
+	if intFrequency in intFrequencySet:
 		raise ValueError("Duplicate frequency found {}".format(intFrequency))
 
 with open(strFilepath) as oFile:
@@ -23,5 +23,5 @@ while True:
 		while strFileLine:
 			intTotalFrequency += int(strFileLine)
 			duplicate(intTotalFrequency)
-			intFrequencyList.append(intTotalFrequency)
+			intFrequencySet.add(intTotalFrequency)
 			strFileLine = oFile.readline()
