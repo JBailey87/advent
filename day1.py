@@ -1,33 +1,27 @@
 import collections
 #filepath = 'input/day1/day1-test.txt'
 filepath = 'input/day1/day1-puzzle1.txt'
-total=0
-list = []
-
-
-
-
+intTotalFrequency = 0
+intFrequencyList = []
 
 def duplicate(frequency):
 	if frequency in list:
-		raise ValueError("duplicate {}".format(frequency))
-
-
+		raise ValueError("Duplicate frequency found {}".format(frequency))
 
 with open(filepath) as fp:
 	line = fp.readline()
 	while line:
-		total += int(line)
+		intTotalFrequency += int(line)
 		line = fp.readline()
-	print("Total frequency {}".format(total))
+	print("Total Frequency {}".format(intTotalFrequency))
 
-total = 0
+intTotalFrequency = 0
 
 while True:
-	with open(filepath) as fp:
-		line = fp.readline()
+	with open(filepath) as oFile:
+		strFileLine = oFile.readline()
 		while line:
-			total += int(line)
-			duplicate(total)
-			list.append(total)
-			line = fp.readline()
+			intTotalFrequency += int(strFileLine)
+			duplicate(intTotalFrequency)
+			intFrequencyList.append(intTotalFrequency)
+			strFileLine = oFile.readline()
