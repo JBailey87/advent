@@ -1,8 +1,11 @@
 import collections
 strFilePath = 'input/day2/day2-puzzle.txt'
 #strFilePath = 'input/day2/day2-test.txt'
+#answer is 7470
 twos = 0
 threes = 0
+
+strIDs = set()
 
 def duplicates(input):
 	global twos
@@ -17,12 +20,12 @@ def duplicates(input):
 		threes += 1
 
 with open(strFilePath) as oFile:
-	strFileLine = oFile.readline()
+	strFileLine = oFile.readline().strip()
 
 	while strFileLine:
-		duplicates(strFileLine)
+		strIDs.add(strFileLine)
 		strFileLine = oFile.readline().strip()
 
-	print(twos * threes)
 
-
+list(map(duplicates,strIDs))
+print("answer: {}".format(twos * threes))
